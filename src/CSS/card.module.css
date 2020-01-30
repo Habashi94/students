@@ -1,0 +1,11 @@
+.card {
+  display: grid;
+  grid-template-columns: 25fr 25fr 25fr 25fr;
+  margin: 30px;
+  grid-row-gap: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-around;
+}

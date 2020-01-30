@@ -7,3 +7,10 @@ export const fetchStudents = () => {
     return data.students;
   });
 };
+
+export const addStudent = studentInfo => {
+  return axios.post(`${baseURL}`, { studentInfo }).then(({ data }) => {
+    console.log(data);
+    return data.students;
+  });
+};

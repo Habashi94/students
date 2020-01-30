@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import StudentCard from "./StudentCard";
+import styles from "../CSS/card.module.css";
+import StudentForm from "./Form";
+
 export default class StudentList extends Component {
   state = {
     students: [],
@@ -15,9 +18,9 @@ export default class StudentList extends Component {
   render() {
     return (
       <div>
-        <ul>
+        <StudentForm />
+        <ul className={styles.card}>
           {this.state.students.map(student => {
-            console.log(student)
             return <StudentCard student={student} key={student._id} />;
           })}
         </ul>
