@@ -8,9 +8,14 @@ export const fetchStudents = () => {
   });
 };
 
-export const addStudent = studentInfo => {
-  return axios.post(`${baseURL}`, { studentInfo }).then(({ data }) => {
-    console.log(data);
-    return data.students;
-  });
+export const postStudent = studentInfo => {
+  return axios
+    .post(`${baseURL}`, studentInfo)
+    .then(({ data }) => {
+      console.log(data);
+      return data.student;
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };

@@ -15,10 +15,17 @@ export default class StudentList extends Component {
       this.setState({ students: results, isLoading: false });
     });
   }
+
+  addStudent = newStudent => {
+    this.setState(currentState => {
+      return { students: [newStudent, ...currentState.students] };
+    });
+  };
+
   render() {
     return (
       <div>
-        <StudentForm />
+        <StudentForm addStudent={this.addStudent} />
         <ul className={styles.card}>
           {this.state.students.map(student => {
             return <StudentCard student={student} key={student._id} />;

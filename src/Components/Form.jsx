@@ -1,22 +1,28 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
-
+import * as api from "../api";
 
 export default class StudentForm extends Component {
   state = {
-    studentName: null,
-    studentCohort: null
+    name: "",
+    startingCohort: ""
   };
-  handlingStudentName = event => {
-    this.setState({ studentName: event.target.value });
+
+  handlingChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
-  handlingStudentCohort = event => {
-    this.setState({ studentCohort: event.target.value });
-  };
+
   handleSubmit = event => {
     event.preventDefault();
-
+    const { name, startingCohort } = this.state;
+    console.log(name, startingCohort);
+    api.postStudent({ name, startingCohort }).then(student => {
+      this.props.addStudent(student);
+      this.setState({ name: "", startingCohort: "" });
+    });
   };
+
   render() {
     return (
       <div>
@@ -26,7 +32,9 @@ export default class StudentForm extends Component {
             <Form.Control
               type="name"
               placeholder="Enter Student name"
-              onChange={this.handlingStudentName}
+              onChange={this.handlingChange}
+              name="name"
+              value={this.state.name}
             />
           </Form.Group>
           <Form.Group controlId="formCohort">
@@ -34,7 +42,9 @@ export default class StudentForm extends Component {
             <Form.Control
               type="cohort"
               placeholder="Enter the cohort"
-              onChange={this.handlingStudentCohort}
+              onChange={this.handlingChange}
+              name="startingCohort"
+              value={this.state.startingCohort}
             />
           </Form.Group>
           <Button variant="primary" type="submit">
