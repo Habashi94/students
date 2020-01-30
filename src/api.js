@@ -2,8 +2,8 @@ import axios from "axios";
 
 const baseURL = "https://nc-student-tracker.herokuapp.com/api/students";
 
-export const fetchStudents = () => {
-  return axios.get(`${baseURL}`).then(({ data }) => {
+export const fetchStudents = block => {
+  return axios.get(`${baseURL}`, { params: { block } }).then(({ data }) => {
     return data.students;
   });
 };
@@ -18,4 +18,10 @@ export const postStudent = studentInfo => {
     .catch(err => {
       console.log(err);
     });
+};
+
+export const deleteStudent = studentId => {
+  return axios.delete(`${baseURL}/${studentId}`).then(response => {
+    console.log(response);
+  });
 };

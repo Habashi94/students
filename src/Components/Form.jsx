@@ -35,6 +35,7 @@ export default class StudentForm extends Component {
               onChange={this.handlingChange}
               name="name"
               value={this.state.name}
+              size="sm"
             />
           </Form.Group>
           <Form.Group controlId="formCohort">
@@ -45,6 +46,7 @@ export default class StudentForm extends Component {
               onChange={this.handlingChange}
               name="startingCohort"
               value={this.state.startingCohort}
+              size="sm"
             />
           </Form.Group>
           <Button variant="primary" type="submit">

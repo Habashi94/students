@@ -1,0 +1,7 @@
+.sort {
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+  align-items: center;
+  margin-left: 10em;
+  margin-bottom: 5em;
+}
