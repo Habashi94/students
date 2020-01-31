@@ -6,7 +6,7 @@ import HomePage from "./Components/HomePage";
 import StudentList from "./Components/StudentList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import IndividualStudent from "./Components/IndividualStudent";
-
+// import Error from "./Components/Error";
 function App() {
   return (
     <div>
@@ -15,7 +15,8 @@ function App() {
       <Router>
         <HomePage path="/home" />
         <StudentList path="/students" />
-        <IndividualStudent path="/students/:id"  />
+        <IndividualStudent path="/students/:id" />
+        <HomePage default />
       </Router>
     </div>
   );

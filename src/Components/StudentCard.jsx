@@ -35,7 +35,12 @@ export default class StudentCard extends Component {
     </Popover>
   );
 
-  DeleteButton = () => (
+  DeleteButtonOn = () => (
+    <OverlayTrigger trigger="click" placement="top" overlay={this.popover}>
+      <Button variant="danger">Delete</Button>
+    </OverlayTrigger>
+  );
+  DeleteButtonOff = () => (
     <OverlayTrigger trigger="click" placement="top" overlay={this.popover}>
       <Button variant="danger">Delete</Button>
     </OverlayTrigger>
@@ -57,11 +62,7 @@ export default class StudentCard extends Component {
               <Button variant="primary" href={`/students/${student._id}`}>
                 View
               </Button>
-              {toggle ? (
-                <this.DeleteButton />
-              ) : (
-                <Button variant="danger">Delete</Button>
-              )}
+              {toggle ? <this.DeleteButtonOn /> : <this.DeleteButtonOff />}
             </div>
           </Card.Body>
         </Card>
