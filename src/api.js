@@ -21,7 +21,16 @@ export const postStudent = studentInfo => {
 };
 
 export const deleteStudent = studentId => {
-  return axios.delete(`${baseURL}/${studentId}`).then(response => {
-    console.log(response);
+  return axios
+    .delete(`${baseURL}/${studentId}`)
+    .then(response => {})
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const getStudent = studentId => {
+  return axios.get(`${baseURL}/${studentId}`).then(({ data }) => {
+    return data.student;
   });
 };

@@ -15,7 +15,7 @@ function App() {
       <Router>
         <HomePage path="/home" />
         <StudentList path="/students" />
-        <IndividualStudent path="/students/:id" />
+        <IndividualStudent path="/students/:id"  />
       </Router>
     </div>
   );
